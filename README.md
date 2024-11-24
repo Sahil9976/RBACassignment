@@ -430,10 +430,6 @@ jsonProvider.getRoles('john.smith');
 ```
 
 
-## Applications
-
-The RBAC system is *not* about restricting users, but seeing if a user possess the required permissions or not. However, implementing an allow/deny system is quite trival. In fact, since `rbac.check` resolves with a numeric value representing the depth or best rule that matched the desired permissions, and lower values have higher priority (i.e. weight), implementing such system means only comparing two results. For example :
-
 ```javascript
 function allowDeny(user, allowedPermissions, deniedPermissions, params) {
   function check(permissions) {
@@ -471,21 +467,3 @@ allowDeny(user, 'writer', 'auditor').then(function (allowed) {
   console.error(err.stack);
 })
 ```
-
-
-## Contribution
-
-All contributions welcome! Every PR **must** be accompanied by their associated unit tests!
-
-
-## License
-
-The MIT License (MIT)
-
-Copyright (c) 2015 Mind2Soft <yanick.rochon@mind2soft.com>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
